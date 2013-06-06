@@ -473,5 +473,46 @@
         }
 
         #endregion
+
+
+        public void RunToStream(System.IO.StreamWriter writer, string cacheName, object model, DynamicViewBag viewBag)
+        {
+            _proxy.RunToStream(writer, cacheName, model, viewBag);
+        }
+
+
+        public void RunToStream(System.IO.StreamWriter writer, ITemplate template, DynamicViewBag viewBag)
+        {
+            _proxy.RunToStream(writer, template, viewBag);
+        }
+
+
+        public void ParseToStream(System.IO.StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        {
+            if (disposed)
+                throw new ObjectDisposedException("IsolatedTemplateService");
+
+            if (model != null)
+            {
+                if (CompilerServicesUtility.IsDynamicType(model.GetType()))
+                    throw new ArgumentException("IsolatedTemplateService instances do not support anonymous or dynamic types.");
+            }
+
+            _proxy.ParseToStream(writer, razorTemplate, model, viewBag, cacheName);
+        }
+
+        public void ParseToStream<T>(System.IO.StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        {
+            if (disposed)
+                throw new ObjectDisposedException("IsolatedTemplateService");
+
+            if (model != null)
+            {
+                if (CompilerServicesUtility.IsDynamicType(model.GetType()))
+                    throw new ArgumentException("IsolatedTemplateService instances do not support anonymous or dynamic types.");
+            }
+
+            _proxy.ParseToStream<T>(writer, razorTemplate, model, viewBag, cacheName);
+        }
     }
 }

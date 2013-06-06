@@ -337,5 +337,30 @@ namespace RazorEngine.Templating
             helper.WriteTo(writer);
         }
         #endregion
+
+
+        public void RunToStream(StreamWriter writer, ExecuteContext context)
+        {
+            _context = context;
+
+                _context.CurrentWriter = writer;
+                Execute();
+                _context.CurrentWriter.Flush();
+                _context.CurrentWriter = null;
+
+            //if (Layout != null)
+            //{
+            //    // Get the layout template.
+            //    var layout = ResolveLayout(Layout);
+
+            //    // Push the current body instance onto the stack for later execution.
+            //    //var body = new TemplateWriter(tw => tw.Write(builder.ToString()));
+            //    //context.PushBody(body);
+
+            //    return layout.Run(context);
+            //}
+
+            //return builder.ToString();
+        }
     }
 }

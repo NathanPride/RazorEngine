@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-
+    using System.IO;
     using Text;
 
     /// <summary>
@@ -148,6 +148,27 @@
         string Parse<T>(string razorTemplate, object model, DynamicViewBag viewBag, string cacheName);
 
         /// <summary>
+        /// Parses and returns the result of the specified string template.
+        /// </summary>
+        /// <param name="razorTemplate">The string template.</param>
+        /// <param name="model">The model instance or NULL if no model exists.</param>
+        /// <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
+        /// <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
+        /// <returns>The string result of the template.</returns>
+        void ParseToStream(StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName);
+
+        /// <summary>
+        /// Parses and returns the result of the specified string template.
+        /// </summary>
+        /// <typeparam name="T">Type of the model. Used to find out the type of the model, if model is NULL</typeparam>
+        /// <param name="razorTemplate">The string template.</param>
+        /// <param name="model">The model instance or NULL if no model exists.</param>
+        /// <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
+        /// <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
+        /// <returns>The string result of the template.</returns>
+        void ParseToStream<T>(StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName);
+
+        /// <summary>
         /// Parses the specified set of templates.
         /// </summary>
         /// <param name="razorTemplates">The set of string templates to parse.</param>
@@ -191,6 +212,23 @@
         /// <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
         /// <returns>The string result of the template.</returns>
         string Run(ITemplate template, DynamicViewBag viewBag);
+
+        /// <summary>
+        /// Runs the template with the specified cacheName.
+        /// </summary>
+        /// <param name="cacheName">The name of the template in cache.  The template must be in cache.</param>
+        /// <param name="model">The model for the template or NULL if there is no model.</param>
+        /// <param name="viewBag">The initial ViewBag contents NULL for an empty ViewBag.</param>
+        /// <returns>The string result of the template.</returns>
+        void RunToStream(StreamWriter writer, string cacheName, object model, DynamicViewBag viewBag);
+
+        /// <summary>
+        /// Runs the specified template.
+        /// </summary>
+        /// <param name="template">The template to run.</param>
+        /// <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
+        /// <returns>The string result of the template.</returns>
+        void RunToStream(StreamWriter writer, ITemplate template, DynamicViewBag viewBag);
 
         #endregion
     }

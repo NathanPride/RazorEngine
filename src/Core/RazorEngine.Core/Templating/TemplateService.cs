@@ -654,5 +654,54 @@
                 prop.SetValue(template, model, null);
         }
         #endregion
+
+
+        public void RunToStream(System.IO.StreamWriter writer, string cacheName, object model, DynamicViewBag viewBag)
+        {
+            if (string.IsNullOrWhiteSpace(cacheName))
+                throw new ArgumentException("'cacheName' is a required parameter.");
+
+            CachedTemplateItem item;
+            if (!(_cache.TryGetValue(cacheName, out item)))
+                throw new InvalidOperationException("No template exists with name '" + cacheName + "'");
+
+            ITemplate instance = CreateTemplate(null, item.TemplateType, model);
+
+            RunToStream(writer, instance, viewBag);
+        }
+
+
+        public void RunToStream(System.IO.StreamWriter writer, ITemplate template, DynamicViewBag viewBag)
+        {
+            if (template == null)
+                throw new ArgumentNullException("template");
+
+            template.RunToStream(writer, new ExecuteContext(viewBag));
+        }
+
+
+        public void ParseToStream(System.IO.StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        {
+            ITemplate instance;
+
+            if (cacheName == null)
+                instance = CreateTemplate(razorTemplate, null, model);
+            else
+                instance = GetTemplate(razorTemplate, model, cacheName);
+
+            RunToStream(writer, instance, viewBag);
+        }
+
+        public void ParseToStream<T>(System.IO.StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        {
+            ITemplate instance;
+
+            if (cacheName == null)
+                instance = CreateTemplate(razorTemplate, typeof(T), model);
+            else
+                instance = GetTemplate<T>(razorTemplate, model, cacheName);
+
+            RunToStream(writer, instance, viewBag);
+        }
     }
 }
