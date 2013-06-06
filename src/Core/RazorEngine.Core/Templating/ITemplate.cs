@@ -31,7 +31,7 @@ namespace RazorEngine.Templating
         /// </summary>
         /// <param name="context">The current execution context.</param>
         /// <returns>The merged result of the template.</returns>
-        void RunToStream(TextWriter writer, ExecuteContext context);
+        void RunToWriter(TextWriter writer, ExecuteContext context);
 
         /// <summary>
         /// Writes the specified object to the result.

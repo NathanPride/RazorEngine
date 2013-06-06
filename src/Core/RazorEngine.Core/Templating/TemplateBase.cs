@@ -339,7 +339,7 @@ namespace RazorEngine.Templating
         #endregion
 
 
-        public void RunToStream(TextWriter writer, ExecuteContext context)
+        public void RunToWriter(TextWriter writer, ExecuteContext context)
         {
             _context = context;
 

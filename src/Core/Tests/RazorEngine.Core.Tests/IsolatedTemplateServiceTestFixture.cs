@@ -309,7 +309,7 @@
         /// Tests that a simple template without a model can be parsed.
         /// </summary>
         [Test]
-        public void IsolatedTemplateService_CanParseToStreamSimpleTemplate_WithNoModel()
+        public void IsolatedTemplateService_CanParseToWriterSimpleTemplate_WithNoModel()
         {
             using (var service = new IsolatedTemplateService())
             using (var writer = new StringWriter())
@@ -318,7 +318,7 @@
                 const string template = "<h1>Hello World</h1>";
                 const string expected = template;
 
-                service.ParseToStream(writer, template, null, null, null);
+                service.ParseToWriter(writer, template, null, null, null);
 
                 string result = writer.ToString();
 
@@ -330,7 +330,7 @@
         /// Tests that a simple template with a model can be parsed.
         /// </summary>
         [Test]
-        public void IsolatedTemplateService_CanParseToStreamSimpleTemplate_WithComplexSerializableModel()
+        public void IsolatedTemplateService_CanParseToWriterSimpleTemplate_WithComplexSerializableModel()
         {
             using (var service = new IsolatedTemplateService())
             using(var writer = new StringWriter())
@@ -340,7 +340,7 @@
 
                 var model = new Person { Forename = "Matt" };
 
-                service.ParseToStream(writer, template, model, null, null);
+                service.ParseToWriter(writer, template, model, null, null);
                 string result = writer.ToString();
 
                 Assert.That(result == expected, "Result does not match expected: " + result);
@@ -356,7 +356,7 @@
         /// the object's .ToString() and automatically encode it.
         /// </remarks>
         [Test]
-        public void IsolatedTemplateService_CanParseToStreamSimpleTemplate_UsingHtmlEncoding()
+        public void IsolatedTemplateService_CanParseToWriterSimpleTemplate_UsingHtmlEncoding()
         {
 
             using (var service = new IsolatedTemplateService(Encoding.Html))
@@ -367,7 +367,7 @@
 
                 var model = new Person { Forename = "Matt & World" };
 
-                service.ParseToStream(writer, template, model, null, null);
+                service.ParseToWriter(writer, template, model, null, null);
                 string result = writer.ToString();
 
                 Assert.That(result == expected, "Result does not match expected: " + result);
@@ -383,7 +383,7 @@
         /// the object's .ToString() and automatically encode it.
         /// </remarks>
         [Test]
-        public void IsolatedTemplateService_CanParseToStreamSimpleTemplate_UsingRawEncoding()
+        public void IsolatedTemplateService_CanParseToWriterSimpleTemplate_UsingRawEncoding()
         {
             using (var service = new IsolatedTemplateService(Encoding.Raw))
             using (var writer = new StringWriter())
@@ -393,7 +393,7 @@
 
                 var model = new Person { Forename = "Matt & World" };
 
-                service.ParseToStream(writer, template, model, null, null);
+                service.ParseToWriter(writer, template, model, null, null);
                 string result = writer.ToString();
 
                 Assert.That(result == expected, "Result does not match expected: " + result);

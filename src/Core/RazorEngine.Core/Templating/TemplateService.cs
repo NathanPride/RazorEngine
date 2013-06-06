@@ -656,7 +656,7 @@
         #endregion
 
 
-        public void RunToStream(System.IO.TextWriter writer, string cacheName, object model, DynamicViewBag viewBag)
+        public void RunToWriter(System.IO.TextWriter writer, string cacheName, object model, DynamicViewBag viewBag)
         {
             if (string.IsNullOrWhiteSpace(cacheName))
                 throw new ArgumentException("'cacheName' is a required parameter.");
@@ -667,20 +667,20 @@
 
             ITemplate instance = CreateTemplate(null, item.TemplateType, model);
 
-            RunToStream(writer, instance, viewBag);
+            RunToWriter(writer, instance, viewBag);
         }
 
 
-        public void RunToStream(System.IO.TextWriter writer, ITemplate template, DynamicViewBag viewBag)
+        public void RunToWriter(System.IO.TextWriter writer, ITemplate template, DynamicViewBag viewBag)
         {
             if (template == null)
                 throw new ArgumentNullException("template");
 
-            template.RunToStream(writer, new ExecuteContext(viewBag));
+            template.RunToWriter(writer, new ExecuteContext(viewBag));
         }
 
 
-        public void ParseToStream(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        public void ParseToWriter(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
         {
             ITemplate instance;
 
@@ -689,10 +689,10 @@
             else
                 instance = GetTemplate(razorTemplate, model, cacheName);
 
-            RunToStream(writer, instance, viewBag);
+            RunToWriter(writer, instance, viewBag);
         }
 
-        public void ParseToStream<T>(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        public void ParseToWriter<T>(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
         {
             ITemplate instance;
 
@@ -701,7 +701,7 @@
             else
                 instance = GetTemplate<T>(razorTemplate, model, cacheName);
 
-            RunToStream(writer, instance, viewBag);
+            RunToWriter(writer, instance, viewBag);
         }
     }
 }

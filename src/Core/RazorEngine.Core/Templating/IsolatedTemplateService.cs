@@ -475,19 +475,19 @@
         #endregion
 
 
-        public void RunToStream(System.IO.TextWriter writer, string cacheName, object model, DynamicViewBag viewBag)
+        public void RunToWriter(System.IO.TextWriter writer, string cacheName, object model, DynamicViewBag viewBag)
         {
-            _proxy.RunToStream(writer, cacheName, model, viewBag);
+            _proxy.RunToWriter(writer, cacheName, model, viewBag);
         }
 
 
-        public void RunToStream(System.IO.TextWriter writer, ITemplate template, DynamicViewBag viewBag)
+        public void RunToWriter(System.IO.TextWriter writer, ITemplate template, DynamicViewBag viewBag)
         {
-            _proxy.RunToStream(writer, template, viewBag);
+            _proxy.RunToWriter(writer, template, viewBag);
         }
 
 
-        public void ParseToStream(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        public void ParseToWriter(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
         {
             if (disposed)
                 throw new ObjectDisposedException("IsolatedTemplateService");
@@ -498,10 +498,10 @@
                     throw new ArgumentException("IsolatedTemplateService instances do not support anonymous or dynamic types.");
             }
 
-            _proxy.ParseToStream(writer, razorTemplate, model, viewBag, cacheName);
+            _proxy.ParseToWriter(writer, razorTemplate, model, viewBag, cacheName);
         }
 
-        public void ParseToStream<T>(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        public void ParseToWriter<T>(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
         {
             if (disposed)
                 throw new ObjectDisposedException("IsolatedTemplateService");
@@ -512,7 +512,7 @@
                     throw new ArgumentException("IsolatedTemplateService instances do not support anonymous or dynamic types.");
             }
 
-            _proxy.ParseToStream<T>(writer, razorTemplate, model, viewBag, cacheName);
+            _proxy.ParseToWriter<T>(writer, razorTemplate, model, viewBag, cacheName);
         }
     }
 }

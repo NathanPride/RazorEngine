@@ -321,9 +321,9 @@
         /// <param name="writer">The writer where the result will be written to.</param>
         /// <param name="razorTemplate">The string template.</param>
         /// <returns>The string result of the template.</returns>
-        public static void ParseToStream(TextWriter writer, string razorTemplate)
+        public static void ParseToWriter(TextWriter writer, string razorTemplate)
         {
-            TemplateService.ParseToStream(writer, razorTemplate, null, null, null);
+            TemplateService.ParseToWriter(writer, razorTemplate, null, null, null);
         }
 
         /// <summary>
@@ -334,9 +334,9 @@
         /// <param name="razorTemplate">The string template.</param>
         /// <param name="model">The model instance.</param>
         /// <returns>The string result of the template.</returns>
-        public static void ParseToStream<T>(TextWriter writer, string razorTemplate, T model)
+        public static void ParseToWriter<T>(TextWriter writer, string razorTemplate, T model)
         {
-            TemplateService.ParseToStream(writer, razorTemplate, model, null, null);
+            TemplateService.ParseToWriter(writer, razorTemplate, model, null, null);
         }
 
         /// <summary>
@@ -348,9 +348,9 @@
         /// <param name="model">The model instance.</param>
         /// <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
         /// <returns>The string result of the template.</returns>
-        public static void ParseToStream<T>(TextWriter writer, string razorTemplate, T model, string cacheName)
+        public static void ParseToWriter<T>(TextWriter writer, string razorTemplate, T model, string cacheName)
         {
-            TemplateService.ParseToStream(writer, razorTemplate, model, null, cacheName);
+            TemplateService.ParseToWriter(writer, razorTemplate, model, null, cacheName);
         }
 
         /// <summary>
@@ -363,9 +363,9 @@
         /// <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
         /// <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
         /// <returns>The string result of the template.</returns>
-        public static void ParseToStream<T>(TextWriter writer, string razorTemplate, T model, DynamicViewBag viewBag, string cacheName)
+        public static void ParseToWriter<T>(TextWriter writer, string razorTemplate, T model, DynamicViewBag viewBag, string cacheName)
         {
-            TemplateService.ParseToStream(writer, razorTemplate, model, viewBag, cacheName);
+            TemplateService.ParseToWriter(writer, razorTemplate, model, viewBag, cacheName);
         }
 
         /// <summary>
@@ -376,9 +376,9 @@
         /// <param name="model">The model instance.</param>
         /// <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
         /// <returns>The string result of the template.</returns>
-        public static void ParseToStream(TextWriter writer, string razorTemplate, object model, string cacheName)
+        public static void ParseToWriter(TextWriter writer, string razorTemplate, object model, string cacheName)
         {
-            TemplateService.ParseToStream(writer, razorTemplate, model, null, cacheName);
+            TemplateService.ParseToWriter(writer, razorTemplate, model, null, cacheName);
         }
 
         /// <summary>
@@ -388,9 +388,9 @@
         /// <param name="razorTemplate">The string template.</param>
         /// <param name="model">The model instance.</param>
         /// <returns>The string result of the template.</returns>
-        public static void ParseToStream(TextWriter writer, string razorTemplate, object model)
+        public static void ParseToWriter(TextWriter writer, string razorTemplate, object model)
         {
-            TemplateService.ParseToStream(writer, razorTemplate, model, null, null);
+            TemplateService.ParseToWriter(writer, razorTemplate, model, null, null);
         }
 
         /// <summary>
@@ -690,9 +690,9 @@
         /// <param name="writer">The writer where the result will be written to.</param>
         /// <param name="cacheName">The name of the template type in cache.</param>
         /// <returns>The string result of the template.</returns>
-        public static void RunToStream(TextWriter writer, string cacheName)
+        public static void RunToWriter(TextWriter writer, string cacheName)
         {
-            TemplateService.RunToStream(writer, cacheName, null, null);
+            TemplateService.RunToWriter(writer, cacheName, null, null);
         }
 
         /// <summary>
@@ -702,9 +702,9 @@
         /// <param name="cacheName">The name of the template type in cache.</param>
         /// <param name="model">The model.</param>
         /// <returns>The string result of the template.</returns>
-        public static void RunToStream(TextWriter writer, string cacheName, object model)
+        public static void RunToWriter(TextWriter writer, string cacheName, object model)
         {
-            TemplateService.RunToStream(writer, cacheName, model, null);
+            TemplateService.RunToWriter(writer, cacheName, model, null);
         }
 
         /// <summary>
@@ -715,9 +715,9 @@
         /// <param name="model">The model.</param>
         /// <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
         /// <returns>The string result of the template.</returns>
-        public static void RunToStream(TextWriter writer, string cacheName, object model, DynamicViewBag viewBag)
+        public static void RunToWriter(TextWriter writer, string cacheName, object model, DynamicViewBag viewBag)
         {
-            TemplateService.RunToStream(writer, cacheName, model, viewBag);
+            TemplateService.RunToWriter(writer, cacheName, model, viewBag);
         }
 
         /// <summary>
@@ -728,9 +728,9 @@
         /// <param name="cacheName">The name of the template type in cache.</param>
         /// <param name="model">The model.</param>
         /// <returns>The string result of the template.</returns>
-        public static void RunToStream<T>(TextWriter writer, string cacheName, T model)
+        public static void RunToWriter<T>(TextWriter writer, string cacheName, T model)
         {
-            TemplateService.RunToStream(writer, cacheName, model, null);
+            TemplateService.RunToWriter(writer, cacheName, model, null);
         }
 
         /// <summary>
@@ -742,9 +742,9 @@
         /// <param name="model">The model.</param>
         /// <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
         /// <returns>The string result of the template.</returns>
-        public static void RunToStream<T>(TextWriter writer,string cacheName, T model, DynamicViewBag viewBag)
+        public static void RunToWriter<T>(TextWriter writer,string cacheName, T model, DynamicViewBag viewBag)
         {
-            TemplateService.RunToStream(writer, cacheName, model, viewBag);
+            TemplateService.RunToWriter(writer, cacheName, model, viewBag);
         }
 
         /// <summary>
