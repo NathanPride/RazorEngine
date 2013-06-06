@@ -318,12 +318,12 @@ namespace RazorEngine.Templating
             var encodedString = value as IEncodedString;
             if (encodedString != null)
             {
-                writer.Write(encodedString);
+                writer.Write(encodedString.ToEncodedString());
             }
             else
             {
                 encodedString = TemplateService.EncodedStringFactory.CreateEncodedString(value);
-                _context.CurrentWriter.Write(encodedString);
+                _context.CurrentWriter.Write(encodedString.ToEncodedString());
             }
         }
 
