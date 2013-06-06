@@ -656,7 +656,7 @@
         #endregion
 
 
-        public void RunToStream(System.IO.StreamWriter writer, string cacheName, object model, DynamicViewBag viewBag)
+        public void RunToStream(System.IO.TextWriter writer, string cacheName, object model, DynamicViewBag viewBag)
         {
             if (string.IsNullOrWhiteSpace(cacheName))
                 throw new ArgumentException("'cacheName' is a required parameter.");
@@ -671,7 +671,7 @@
         }
 
 
-        public void RunToStream(System.IO.StreamWriter writer, ITemplate template, DynamicViewBag viewBag)
+        public void RunToStream(System.IO.TextWriter writer, ITemplate template, DynamicViewBag viewBag)
         {
             if (template == null)
                 throw new ArgumentNullException("template");
@@ -680,7 +680,7 @@
         }
 
 
-        public void ParseToStream(System.IO.StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        public void ParseToStream(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
         {
             ITemplate instance;
 
@@ -692,7 +692,7 @@
             RunToStream(writer, instance, viewBag);
         }
 
-        public void ParseToStream<T>(System.IO.StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        public void ParseToStream<T>(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
         {
             ITemplate instance;
 

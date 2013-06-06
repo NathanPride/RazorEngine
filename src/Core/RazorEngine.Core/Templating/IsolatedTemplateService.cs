@@ -475,19 +475,19 @@
         #endregion
 
 
-        public void RunToStream(System.IO.StreamWriter writer, string cacheName, object model, DynamicViewBag viewBag)
+        public void RunToStream(System.IO.TextWriter writer, string cacheName, object model, DynamicViewBag viewBag)
         {
             _proxy.RunToStream(writer, cacheName, model, viewBag);
         }
 
 
-        public void RunToStream(System.IO.StreamWriter writer, ITemplate template, DynamicViewBag viewBag)
+        public void RunToStream(System.IO.TextWriter writer, ITemplate template, DynamicViewBag viewBag)
         {
             _proxy.RunToStream(writer, template, viewBag);
         }
 
 
-        public void ParseToStream(System.IO.StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        public void ParseToStream(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
         {
             if (disposed)
                 throw new ObjectDisposedException("IsolatedTemplateService");
@@ -501,7 +501,7 @@
             _proxy.ParseToStream(writer, razorTemplate, model, viewBag, cacheName);
         }
 
-        public void ParseToStream<T>(System.IO.StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
+        public void ParseToStream<T>(System.IO.TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName)
         {
             if (disposed)
                 throw new ObjectDisposedException("IsolatedTemplateService");

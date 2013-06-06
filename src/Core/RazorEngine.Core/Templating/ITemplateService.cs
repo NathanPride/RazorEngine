@@ -155,7 +155,7 @@
         /// <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
         /// <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
         /// <returns>The string result of the template.</returns>
-        void ParseToStream(StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName);
+        void ParseToStream(TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName);
 
         /// <summary>
         /// Parses and returns the result of the specified string template.
@@ -166,7 +166,7 @@
         /// <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
         /// <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
         /// <returns>The string result of the template.</returns>
-        void ParseToStream<T>(StreamWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName);
+        void ParseToStream<T>(TextWriter writer, string razorTemplate, object model, DynamicViewBag viewBag, string cacheName);
 
         /// <summary>
         /// Parses the specified set of templates.
@@ -220,7 +220,7 @@
         /// <param name="model">The model for the template or NULL if there is no model.</param>
         /// <param name="viewBag">The initial ViewBag contents NULL for an empty ViewBag.</param>
         /// <returns>The string result of the template.</returns>
-        void RunToStream(StreamWriter writer, string cacheName, object model, DynamicViewBag viewBag);
+        void RunToStream(TextWriter writer, string cacheName, object model, DynamicViewBag viewBag);
 
         /// <summary>
         /// Runs the specified template.
@@ -228,7 +228,7 @@
         /// <param name="template">The template to run.</param>
         /// <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
         /// <returns>The string result of the template.</returns>
-        void RunToStream(StreamWriter writer, ITemplate template, DynamicViewBag viewBag);
+        void RunToStream(TextWriter writer, ITemplate template, DynamicViewBag viewBag);
 
         #endregion
     }

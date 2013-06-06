@@ -320,21 +320,20 @@
         /// </summary>
         /// <param name="razorTemplate">The string template.</param>
         /// <returns>The string result of the template.</returns>
-        public static void ParseToStream(StreamWriter writer, string razorTemplate)
+        public static void ParseToStream(TextWriter writer, string razorTemplate)
         {
             TemplateService.ParseToStream(writer, razorTemplate, null, null, null);
         }
 
         /// <summary>
-        /// Parses and returns the result of the specified string template. 
-        /// This method will provide a cache check to see if the compiled template type already exists and is valid.
+        /// Parses and returns the result of the specified string template.
         /// </summary>
         /// <param name="razorTemplate">The string template.</param>
-        /// <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
+        /// <param name="model">The model instance.</param>
         /// <returns>The string result of the template.</returns>
-        public static void ParseToStream(StreamWriter writer, string razorTemplate, string cacheName)
+        public static void ParseToStream(TextWriter writer, string razorTemplate, object model)
         {
-            TemplateService.ParseToStream(writer, razorTemplate, null, null, cacheName);
+            TemplateService.ParseToStream(writer, razorTemplate, model, null, null);
         }
 
         /// <summary>
@@ -633,7 +632,7 @@
         /// </summary>
         /// <param name="cacheName">The name of the template type in cache.</param>
         /// <returns>The string result of the template.</returns>
-        public static void RunToStream(StreamWriter writer, string cacheName)
+        public static void RunToStream(TextWriter writer, string cacheName)
         {
             TemplateService.RunToStream(writer, cacheName, null, null);
         }
@@ -644,7 +643,7 @@
         /// <param name="cacheName">The name of the template type in cache.</param>
         /// <param name="model">The model.</param>
         /// <returns>The string result of the template.</returns>
-        public static void RunToStream(StreamWriter writer, string cacheName, object model)
+        public static void RunToStream(TextWriter writer, string cacheName, object model)
         {
             TemplateService.RunToStream(writer, cacheName, model, null);
         }
