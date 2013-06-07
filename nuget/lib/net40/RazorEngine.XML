@@ -1436,6 +1436,66 @@
             <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
             <returns>The string result of the template.</returns>
         </member>
+        <member name="M:RazorEngine.Razor.ParseToWriter(System.IO.TextWriter,System.String)">
+            <summary>
+            Parses and writes the result of the specified string template.
+            </summary>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="razorTemplate">The string template.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Razor.ParseToWriter``1(System.IO.TextWriter,System.String,``0)">
+            <summary>
+            Parses and writes the result of the specified string template.
+            </summary>
+            <typeparam name="T">The model type.</typeparam>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="razorTemplate">The string template.</param>
+            <param name="model">The model instance.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Razor.ParseToWriter``1(System.IO.TextWriter,System.String,``0,System.String)">
+            <summary>
+            Parses and writes the result of the specified string template.
+            </summary>
+            <typeparam name="T">The model type.</typeparam>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="razorTemplate">The string template.</param>
+            <param name="model">The model instance.</param>
+            <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Razor.ParseToWriter``1(System.IO.TextWriter,System.String,``0,RazorEngine.Templating.DynamicViewBag,System.String)">
+            <summary>
+            Parses and writes the result of the specified string template.
+            </summary>
+            <typeparam name="T">The model type.</typeparam>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="razorTemplate">The string template.</param>
+            <param name="model">The model instance.</param>
+            <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
+            <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Razor.ParseToWriter(System.IO.TextWriter,System.String,System.Object,System.String)">
+            <summary>
+            Parses and writes the result of the specified string template.
+            </summary>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="razorTemplate">The string template.</param>
+            <param name="model">The model instance.</param>
+            <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Razor.ParseToWriter(System.IO.TextWriter,System.String,System.Object)">
+            <summary>
+            Parses and writes the result of the specified string template.
+            </summary>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="razorTemplate">The string template.</param>
+            <param name="model">The model instance.</param>
+            <returns>The string result of the template.</returns>
+        </member>
         <member name="M:RazorEngine.Razor.ParseMany(System.String,System.Collections.Generic.IEnumerable{System.Object},System.Boolean)">
             <summary>
             Parses the template and merges with the many models provided.
@@ -1645,6 +1705,54 @@
             <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
             <returns>The string result of the template.</returns>
         </member>
+        <member name="M:RazorEngine.Razor.RunToWriter(System.IO.TextWriter,System.String)">
+            <summary>
+            Runs the template with the specified name.
+            </summary>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="cacheName">The name of the template type in cache.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Razor.RunToWriter(System.IO.TextWriter,System.String,System.Object)">
+            <summary>
+            Runs the template with the specified name.
+            </summary>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="cacheName">The name of the template type in cache.</param>
+            <param name="model">The model.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Razor.RunToWriter(System.IO.TextWriter,System.String,System.Object,RazorEngine.Templating.DynamicViewBag)">
+            <summary>
+            Runs the template with the specified name.
+            </summary>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="cacheName">The name of the template type in cache.</param>
+            <param name="model">The model.</param>
+            <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Razor.RunToWriter``1(System.IO.TextWriter,System.String,``0)">
+            <summary>
+            Runs the template with the specified name.
+            </summary>
+            <typeparam name="T">The model type.</typeparam>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="cacheName">The name of the template type in cache.</param>
+            <param name="model">The model.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Razor.RunToWriter``1(System.IO.TextWriter,System.String,``0,RazorEngine.Templating.DynamicViewBag)">
+            <summary>
+            Runs the template with the specified name.
+            </summary>
+            <typeparam name="T">The model type.</typeparam>
+            <param name="writer">The writer where the result will be written to.</param>
+            <param name="cacheName">The name of the template type in cache.</param>
+            <param name="model">The model.</param>
+            <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
+            <returns>The string result of the template.</returns>
+        </member>
         <member name="M:RazorEngine.Razor.SetTemplateService(RazorEngine.Templating.ITemplateService)">
             <summary>
             Sets the template service.
@@ -1678,7 +1786,16 @@
             Gets the template type.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:RazorEngine.Templating.HtmlTemplateBase`1" -->
+        <member name="T:RazorEngine.Templating.HtmlTemplateBase`1">
+            <summary>
+            Provides a base implementation of an html template with a model.
+            </summary>
+            <remarks>
+            This type does not currently serve a purpose, and the WriteAttribute* API has been migrated to the TemplateBase type. This type is not deprecated, as it
+            may form the basis for a future template that supports MVC like @Html syntax.
+            </remarks>
+            <typeparam name="T">The model type.</typeparam>
+        </member>
         <member name="T:RazorEngine.Templating.TemplateBase`1">
             <summary>
             Provides a base implementation of a template with a model.
@@ -1701,6 +1818,13 @@
             </summary>
         </member>
         <member name="M:RazorEngine.Templating.ITemplate.Run(RazorEngine.Templating.ExecuteContext)">
+            <summary>
+            Runs the template and returns the result.
+            </summary>
+            <param name="context">The current execution context.</param>
+            <returns>The merged result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Templating.ITemplate.RunToWriter(System.IO.TextWriter,RazorEngine.Templating.ExecuteContext)">
             <summary>
             Runs the template and returns the result.
             </summary>
@@ -2346,6 +2470,27 @@
             <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
             <returns>The string result of the template.</returns>
         </member>
+        <member name="M:RazorEngine.Templating.ITemplateService.ParseToWriter(System.IO.TextWriter,System.String,System.Object,RazorEngine.Templating.DynamicViewBag,System.String)">
+            <summary>
+            Parses and returns the result of the specified string template.
+            </summary>
+            <param name="razorTemplate">The string template.</param>
+            <param name="model">The model instance or NULL if no model exists.</param>
+            <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
+            <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Templating.ITemplateService.ParseToWriter``1(System.IO.TextWriter,System.String,System.Object,RazorEngine.Templating.DynamicViewBag,System.String)">
+            <summary>
+            Parses and returns the result of the specified string template.
+            </summary>
+            <typeparam name="T">Type of the model. Used to find out the type of the model, if model is NULL</typeparam>
+            <param name="razorTemplate">The string template.</param>
+            <param name="model">The model instance or NULL if no model exists.</param>
+            <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
+            <param name="cacheName">The name of the template type in the cache or NULL if no caching is desired.</param>
+            <returns>The string result of the template.</returns>
+        </member>
         <member name="M:RazorEngine.Templating.ITemplateService.ParseMany(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IEnumerable{RazorEngine.Templating.DynamicViewBag},System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
             <summary>
             Parses the specified set of templates.
@@ -2384,6 +2529,23 @@
             <returns>The string result of the template.</returns>
         </member>
         <member name="M:RazorEngine.Templating.ITemplateService.Run(RazorEngine.Templating.ITemplate,RazorEngine.Templating.DynamicViewBag)">
+            <summary>
+            Runs the specified template.
+            </summary>
+            <param name="template">The template to run.</param>
+            <param name="viewBag">The ViewBag contents or NULL for an initially empty ViewBag.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Templating.ITemplateService.RunToWriter(System.IO.TextWriter,System.String,System.Object,RazorEngine.Templating.DynamicViewBag)">
+            <summary>
+            Runs the template with the specified cacheName.
+            </summary>
+            <param name="cacheName">The name of the template in cache.  The template must be in cache.</param>
+            <param name="model">The model for the template or NULL if there is no model.</param>
+            <param name="viewBag">The initial ViewBag contents NULL for an empty ViewBag.</param>
+            <returns>The string result of the template.</returns>
+        </member>
+        <member name="M:RazorEngine.Templating.ITemplateService.RunToWriter(System.IO.TextWriter,RazorEngine.Templating.ITemplate,RazorEngine.Templating.DynamicViewBag)">
             <summary>
             Runs the specified template.
             </summary>
